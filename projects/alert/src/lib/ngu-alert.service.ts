@@ -7,13 +7,17 @@ import { NguAlertComponent } from './ngu-alert.component';
   providedIn: 'root'
 })
 export class NguAlertService {
-  private componentRef: ComponentRef<{}>;
+  componentRef: ComponentRef<NguAlertComponent>;
 
   constructor(private dom: DomService) {
     this.componentRef = this.dom.appendComponentToBody(NguAlertComponent);
   }
 
   open(data: NguAlert) {
-    (<NguAlertComponent>this.componentRef.instance).subscribeAlert(data);
+    this.componentRef.instance.subscribeAlert(data);
+  }
+
+  clearAll() {
+    this.componentRef.instance.clearAll();
   }
 }

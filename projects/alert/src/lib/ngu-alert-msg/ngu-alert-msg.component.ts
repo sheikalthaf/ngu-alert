@@ -6,7 +6,7 @@ import {
   ComponentRef
 } from '@angular/core';
 import { NguAlert } from '../ngu-alert';
-import { alertAnimations } from '../ngu-alert.animation';
+import { alertAnimations } from './ngu-alert.animation';
 
 @Component({
   selector: 'lib-ngu-alert-msg',
@@ -15,13 +15,13 @@ import { alertAnimations } from '../ngu-alert.animation';
   animations: [alertAnimations.alertAnimation2],
   // tslint:disable-next-line:use-host-property-decorator
   host: {
-    '[@alertAnimation]': ''
+    '[@alertAnimation]': '{}'
   }
 })
 export class NguAlertMsgComponent implements OnInit {
   @Input()
   data: NguAlert;
-  componentRef: ComponentRef<{}>;
+  componentRef: ComponentRef<NguAlertMsgComponent>;
 
   iconSet: {};
   @HostListener('click')
@@ -37,6 +37,7 @@ export class NguAlertMsgComponent implements OnInit {
       danger: 'fa-times',
       info: 'fa-info-circle'
     };
+    console.log(this.data.duration);
     if (this.data.duration !== 0) {
       this.timeOutFn();
     }

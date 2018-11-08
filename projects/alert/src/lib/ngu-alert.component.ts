@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 import { NguAlert, NguAlertConfig } from './ngu-alert';
 import { NguAlertMsgComponent } from './ngu-alert-msg/ngu-alert-msg.component';
-import { alertAnimations } from './ngu-alert.animation';
 
 export const NGU_ALERT_CONFIG = new InjectionToken<NguAlertConfig>(
   'nguAlert.config'
@@ -20,8 +19,7 @@ export const NGU_ALERT_CONFIG = new InjectionToken<NguAlertConfig>(
   // tslint:disable-next-line:component-selector
   selector: 'ngu-alert',
   templateUrl: './ngu-alert.component.html',
-  styleUrls: ['./ngu-alert.component.scss'],
-  animations: [alertAnimations.alertAnimation]
+  styleUrls: ['./ngu-alert.component.scss']
 })
 export class NguAlertComponent {
   @ViewChild('alertBtmRight', { read: ViewContainerRef })
@@ -44,7 +42,6 @@ export class NguAlertComponent {
     duration: 5000
   };
 
-  private components = [];
   dynamicComp = NguAlertMsgComponent;
 
   constructor(
@@ -57,12 +54,16 @@ export class NguAlertComponent {
   }
 
   public subscribeAlert(data: NguAlert) {
-    data.duration = data.duration || this.data.duration;
+    data.duration =
+      typeof data.duration === 'number' ? data.duration : this.data.duration;
 
     this.addComponent(this.dynamicComp, data);
   }
 
-  private addComponent(componentClass: Type<any>, data: NguAlert) {
+  private addComponent(
+    componentClass: Type<NguAlertMsgComponent>,
+    data: NguAlert
+  ) {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
       componentClass
     );
@@ -70,19 +71,33 @@ export class NguAlertComponent {
       this[data.position || this.data.defaultPosition]
     )).createComponent(componentFactory);
 
-    (<NguAlertMsgComponent>component.instance).data = data;
-    (<NguAlertMsgComponent>component.instance).componentRef = component;
+    component.instance.data = data;
+    component.instance.componentRef = component;
   }
 
   assignCustom(data: NguAlertConfig) {
     if (!data) {
       return;
     }
+
     for (const key in data) {
       if (data.hasOwnProperty(key)) {
         const element = data[key];
         this.data[key] = element;
       }
     }
+  }
+
+  clearAll() {
+    [
+      this.BottomCenter,
+      this.BottomLeft,
+      this.BottomRight,
+      this.TopCenter,
+      this.TopLeft,
+      this.TopRight
+    ].forEach(element => {
+      element.clear();
+    });
   }
 }

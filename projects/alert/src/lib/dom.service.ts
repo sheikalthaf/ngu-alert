@@ -4,7 +4,8 @@ import {
   ComponentFactoryResolver,
   EmbeddedViewRef,
   ApplicationRef,
-  Inject
+  Inject,
+  Type
 } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 
@@ -18,9 +19,9 @@ export class DomService {
     @Inject(DOCUMENT) private document: Document
   ) {}
 
-  appendComponentToBody(component: any) {
+  appendComponentToBody<T>(component: Type<T>) {
     // 1. Create a component reference from the component
-    const componentRef: any = this.componentFactoryResolver
+    const componentRef = this.componentFactoryResolver
       .resolveComponentFactory(component)
       .create(this.injector);
 
