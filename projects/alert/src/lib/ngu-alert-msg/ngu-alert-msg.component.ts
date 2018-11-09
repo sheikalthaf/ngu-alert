@@ -37,15 +37,5 @@ export class NguAlertMsgComponent implements OnInit {
       danger: 'fa-times',
       info: 'fa-info-circle'
     };
-    console.log(this.data.duration);
-    if (this.data.duration !== 0) {
-      this.timeOutFn();
-    }
-  }
-
-  private timeOutFn() {
-    setTimeout(() => {
-      this.destroyAlert();
-    }, this.data.duration);
   }
 }

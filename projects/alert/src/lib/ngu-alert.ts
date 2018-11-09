@@ -1,3 +1,5 @@
+import { Type } from '@angular/core';
+
 export interface NguAlertData {
   data: any;
 }
@@ -23,4 +25,5 @@ export type NguAlertType = 'success' | 'danger' | 'info';
 export interface NguAlertConfig {
   defaultPosition?: Positions;
   duration?: number;
+  customTemplate?: Type<any>;
 }

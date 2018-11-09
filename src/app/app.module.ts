@@ -8,16 +8,19 @@ import {
   NGU_ALERT_CONFIG,
   NguAlertConfig
 } from '../../projects/alert/src/public_api';
+import { CustomTemplateComponent } from './custom-template/custom-template.component';
 
 const config: NguAlertConfig = {
   defaultPosition: 'BottomRight',
-  duration: 1000
+  duration: 1000,
+  customTemplate: CustomTemplateComponent
 };
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CustomTemplateComponent],
   imports: [BrowserModule, BrowserAnimationsModule, NguAlertModule],
   providers: [{ provide: NGU_ALERT_CONFIG, useValue: config }],
+  entryComponents: [CustomTemplateComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

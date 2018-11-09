@@ -19,7 +19,7 @@ export class DomService {
     @Inject(DOCUMENT) private document: Document
   ) {}
 
-  appendComponentToBody<T>(component: Type<T>) {
+  appendComponentToBody<T>(component: Type<T>): any {
     // 1. Create a component reference from the component
     const componentRef = this.componentFactoryResolver
       .resolveComponentFactory(component)

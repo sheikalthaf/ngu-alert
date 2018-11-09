@@ -39,10 +39,11 @@ export class NguAlertComponent {
 
   private data: NguAlertConfig = {
     defaultPosition: 'BottomCenter',
-    duration: 5000
+    duration: 5000,
+    customTemplate: NguAlertMsgComponent
   };
 
-  dynamicComp = NguAlertMsgComponent;
+  // dynamicComp = NguAlertMsgComponent;
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
@@ -57,7 +58,7 @@ export class NguAlertComponent {
     data.duration =
       typeof data.duration === 'number' ? data.duration : this.data.duration;
 
-    this.addComponent(this.dynamicComp, data);
+    this.addComponent(this.data.customTemplate, data);
   }
 
   private addComponent(
@@ -73,12 +74,11 @@ export class NguAlertComponent {
 
     component.instance.data = data;
     component.instance.componentRef = component;
+    this.timeOutFn(component, data);
   }
 
   assignCustom(data: NguAlertConfig) {
-    if (!data) {
-      return;
-    }
+    if (!data) return;
 
     for (const key in data) {
       if (data.hasOwnProperty(key)) {
@@ -86,6 +86,16 @@ export class NguAlertComponent {
         this.data[key] = element;
       }
     }
+  }
+
+  private timeOutFn(componentRef, data) {
+    if (data.duration === 0) return;
+
+    setTimeout(() => this.destroyAlert(componentRef), data.duration);
+  }
+
+  destroyAlert(componentRef) {
+    componentRef.destroy();
   }
 
   clearAll() {
