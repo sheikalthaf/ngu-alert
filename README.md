@@ -21,7 +21,7 @@ import { NguAlertModule } from '@ngu/alert';
 export class AppModule { }
 ```
 
-Then use in your component:
+Then use in your component(s):
 
 ```javascript
 import { Component, OnInit } from '@angular/core';
