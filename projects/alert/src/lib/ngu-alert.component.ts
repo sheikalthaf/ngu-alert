@@ -9,7 +9,7 @@ import {
   Optional
 } from '@angular/core';
 import { NguAlert, NguAlertConfig } from './ngu-alert';
-import { NguAlertMsgComponent } from './ngu-alert-msg/ngu-alert-msg.component';
+import { NguAlertMsgComponent } from './ngu-alert-msg.component';
 
 export const NGU_ALERT_CONFIG = new InjectionToken<NguAlertConfig>(
   'nguAlert.config'
@@ -55,8 +55,8 @@ export class NguAlertComponent {
   }
 
   public subscribeAlert(data: NguAlert) {
-    data.duration =
-      typeof data.duration === 'number' ? data.duration : this.data.duration;
+    const d = Number(data.duration);
+    data.duration = isNaN(d) ? this.data.duration : d;
 
     this.addComponent(this.data.customTemplate, data);
   }

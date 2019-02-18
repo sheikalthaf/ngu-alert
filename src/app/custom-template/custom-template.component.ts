@@ -6,7 +6,7 @@ import {
   ComponentRef
 } from '@angular/core';
 import { NguAlert } from '../../../projects/alert/src/public_api';
-import { alertAnimations } from '../../../projects/alert/src/lib/ngu-alert-msg/ngu-alert.animation';
+import { alertAnimations } from '../../../projects/alert/src/lib/ngu-alert.animation';
 
 @Component({
   selector: 'app-custom-template',

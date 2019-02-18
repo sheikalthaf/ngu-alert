@@ -5,7 +5,7 @@ import {
   HostListener,
   ComponentRef
 } from '@angular/core';
-import { NguAlert } from '../ngu-alert';
+import { NguAlert } from './ngu-alert';
 import { alertAnimations } from './ngu-alert.animation';
 
 @Component({

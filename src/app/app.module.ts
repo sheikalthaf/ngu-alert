@@ -9,6 +9,7 @@ import {
   NguAlertConfig
 } from '../../projects/alert/src/public_api';
 import { CustomTemplateComponent } from './custom-template/custom-template.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const config: NguAlertConfig = {
   defaultPosition: 'BottomRight',
@@ -18,7 +19,13 @@ const config: NguAlertConfig = {
 
 @NgModule({
   declarations: [AppComponent, CustomTemplateComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, NguAlertModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    NguAlertModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [{ provide: NGU_ALERT_CONFIG, useValue: config }],
   entryComponents: [CustomTemplateComponent],
   bootstrap: [AppComponent]
