@@ -23,13 +23,42 @@
       <input type="text" formControlName="duration" />
     </label>
   </div>
+  <div>
+    <label
+      >template:
+      <select formControlName="template">
+        <option value="defaultTemplate">template 1</option>
+        <option value="defaultTemplate1">template 2</option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label
+      >position:
+      <select formControlName="position">
+        <option value="BottomRight">BottomRight</option>
+        <option value="BottomLeft">BottomLeft</option>
+        <option value="TopLeft">TopLeft</option>
+        <option value="TopRight">TopRight</option>
+        <option value="BottomCenter">BottomCenter</option>
+        <option value="TopCenter">TopCenter</option>
+      </select>
+    </label>
+  </div>
   <button>Open ALert</button>
 </form>
 
 <button (click)="alert.clearAll()">clear</button>
 
-<ng-template let-data>
-  <div>
-    <div>{{ data.msg }}</div>
+<ng-template #defaultTemplate let-data1>
+  <div class="myalert myCustomTemplate" [ngClass]="data1.type || 'success'">
+    <p>{{ data1.heading }}</p>
+    <p>{{ data1.msg }}</p>
+  </div>
+</ng-template>
+
+<ng-template #defaultTemplate1 let-data1>
+  <div class="myalert myCustomTemplate" [ngClass]="data1.type || 'success'">
+    <p>{{ data1.msg }}</p>
   </div>
 </ng-template>

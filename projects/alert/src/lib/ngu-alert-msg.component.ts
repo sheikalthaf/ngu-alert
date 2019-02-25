@@ -5,7 +5,7 @@ import {
   HostListener,
   ComponentRef
 } from '@angular/core';
-import { NguAlert } from './ngu-alert';
+import { NguAlert, NguAlertContentType } from './ngu-alert';
 import { alertAnimations } from './ngu-alert.animation';
 
 @Component({
@@ -20,8 +20,15 @@ import { alertAnimations } from './ngu-alert.animation';
 })
 export class NguAlertMsgComponent implements OnInit {
   @Input()
-  data: NguAlert;
+  set data(d: NguAlert) {
+    this.context = {
+      $implicit: d
+    };
+  }
   componentRef: ComponentRef<NguAlertMsgComponent>;
+  content: any;
+  context: any;
+  renderMethod: NguAlertContentType = 'template';
 
   iconSet: {};
   @HostListener('click')

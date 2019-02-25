@@ -13,8 +13,9 @@ export class NguAlertService {
     this.componentRef = this.dom.appendComponentToBody(NguAlertComponent);
   }
 
-  open(data: NguAlert) {
-    this.componentRef.instance.subscribeAlert(data);
+  open(data: NguAlert, template?) {
+    console.log(template);
+    this.componentRef.instance.subscribeAlert(data, template);
   }
 
   clearAll() {

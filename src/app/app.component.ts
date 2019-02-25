@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NguAlertService } from '../../projects/alert/src/public_api';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -10,12 +10,17 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class AppComponent {
   title = 'ngu-alert';
   form: FormGroup;
+  @ViewChild('defaultTemplate') defaultTemplate: any;
+  @ViewChild('defaultTemplate1') defaultTemplate1: any;
+
   constructor(public alert: NguAlertService, private fb: FormBuilder) {
     this.form = this.fb.group({
       heading: 'This is a Heading',
       body: 'This is a body content with more details about the alert',
       type: 'success',
-      duration: 5000
+      position: 'BottomRight',
+      duration: 5000,
+      template: 'defaultTemplate'
     });
     // this.openAlerts();
   }
@@ -43,11 +48,15 @@ export class AppComponent {
 
   openAlert() {
     const d = this.form.value;
-    this.alert.open({
-      heading: d.heading,
-      msg: d.body,
-      type: d.type,
-      duration: d.duration
-    });
+    this.alert.open(
+      {
+        heading: d.heading,
+        msg: d.body,
+        type: d.type,
+        position: d.position,
+        duration: d.duration
+      },
+      this[d.template]
+    );
   }
 }

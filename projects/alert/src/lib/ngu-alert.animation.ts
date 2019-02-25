@@ -39,7 +39,7 @@ export const alertAnimations: { [x: string]: AnimationTriggerMetadata } = {
 
   alertAnimation2: trigger('alertAnimation', [
     transition(':enter', [
-      style({ transform: 'translateY(110%)', opacity: 0 }),
+      style({ transform: 'translateY(110%) scale(.8)', opacity: 0 }),
       animate(
         '225ms cubic-bezier(0.4,0.0,0.2,1)',
         style({ transform: 'none', opacity: 1 })
@@ -49,7 +49,7 @@ export const alertAnimations: { [x: string]: AnimationTriggerMetadata } = {
       style({ transform: 'none' }),
       animate(
         '225ms cubic-bezier(0.4,0.0,0.2,1)',
-        style({ transform: 'translateY(110%)', opacity: 0 })
+        style({ transform: 'translateY(110%) scale(.8)', opacity: 0 })
       )
     ])
   ])

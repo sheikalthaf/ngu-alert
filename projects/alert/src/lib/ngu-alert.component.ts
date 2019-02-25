@@ -54,16 +54,17 @@ export class NguAlertComponent {
     this.assignCustom(config);
   }
 
-  public subscribeAlert(data: NguAlert) {
+  public subscribeAlert(data: NguAlert, template: any) {
     const d = Number(data.duration);
     data.duration = isNaN(d) ? this.data.duration : d;
 
-    this.addComponent(this.data.customTemplate, data);
+    this.addComponent(this.data.customTemplate, data, template);
   }
 
   private addComponent(
     componentClass: Type<NguAlertMsgComponent>,
-    data: NguAlert
+    data: NguAlert,
+    template: any
   ) {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
       componentClass
@@ -73,6 +74,7 @@ export class NguAlertComponent {
     )).createComponent(componentFactory);
 
     component.instance.data = data;
+    component.instance.content = template;
     component.instance.componentRef = component;
     this.timeOutFn(component, data);
   }

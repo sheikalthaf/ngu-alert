@@ -27,3 +27,5 @@ export interface NguAlertConfig {
   duration?: number;
   customTemplate?: Type<any>;
 }
+
+export type NguAlertContentType = 'template' | 'string' | 'component';

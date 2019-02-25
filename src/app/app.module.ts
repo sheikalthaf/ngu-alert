@@ -13,8 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const config: NguAlertConfig = {
   defaultPosition: 'BottomRight',
-  duration: 1000,
-  customTemplate: CustomTemplateComponent
+  duration: 1000
 };
 
 @NgModule({
