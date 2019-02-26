@@ -1,5 +1,5 @@
 {
-  "name": "alert",
+  "name": "@ngu/alert",
   "version": "0.3.0",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^7.0.0",
