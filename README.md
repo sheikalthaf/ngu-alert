@@ -1,27 +1,50 @@
-# NguAlert
+# ngu-alert
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.1.
+Angular Universal alert
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+`npm install @ngu/alert --save`
 
-## Code scaffolding
+## Sample
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Include NguAlertModule in your app module:
 
-## Build
+```javascript
+import { NguAlertModule } from '@ngu/alert';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+@NgModule({
+  imports: [NguAlertModule]
+})
+export class AppModule {}
+```
 
-## Running unit tests
+Then use in your component(s):
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```javascript
+import { Component, OnInit } from '@angular/core';
+import { NguAlertService } from '@ngu/alert';
 
-## Running end-to-end tests
+@Component({
+  selector: 'sample',
+  template: `<h1>Ngu Alert</h1>`,
+})
+export class SampleComponent implements OnInit {
+    constructor(private alert: NguAlertService)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+    ngOnInit() {
+        for (i = 0; i < 4; i++) {
+            this.alert.open({
+                heading: 'This is a heading',
+                msg: 'This is a message from alert',
+                type: 'success',
+                duration: 10000
+            });
+        }
+    }
+}
+```
 
-## Further help
+## License
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[MIT](LICENSE) license.

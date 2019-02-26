@@ -1,0 +1,40 @@
+.ngu-alert {
+  position: fixed;
+  width: 312px;
+  max-width: 94%;
+  z-index: 30;
+
+  &.btm-left {
+    bottom: 15px;
+    left: 10px;
+  }
+
+  &.btm-right {
+    bottom: 15px;
+    right: 10px;
+  }
+
+  &.top-left {
+    left: 10px;
+    top: 0;
+  }
+
+  &.top-right {
+    right: 10px;
+    top: 0;
+  }
+
+  &.btm-center {
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+
+  &.top-center {
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 0 auto;
+  }
+}

@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "alert": [
+        "dist/alert"
+      ],
+      "alert/*": [
+        "dist/alert/*"
+      ]
+    }
   }
 }
