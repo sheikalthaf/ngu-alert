@@ -70,6 +70,8 @@
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
+              "baseHref": "https://sheikalthaf.github.io/ngu-alert/",
+              "deployUrl": "https://sheikalthaf.github.io/ngu-alert/",
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,

@@ -18,4 +18,5 @@ cache:
     - node_modules
 
 script:
-  - ng build --prod
+  - yarn
+  - yarn build

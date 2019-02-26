@@ -4,7 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build:lib": "ng build --project alert",
+    "build:app": "ng build --project alert-demo --configuration=production",
+    "build": "yarn build:lib && yarn build:app",
     "precommit": "yarn run format:fix",
     "format:check": "prettier --config ./.prettierrc --list-different \"projects/**/{lib,app,environments}/**/*{.ts,.js,.json,.css,.html,.scss}\"",
     "format:all": "prettier --config ./.prettierrc --write \"projects/**/{lib,app,environments}/**/*{.ts,.js,.json,.css,.html,.scss}\"",
