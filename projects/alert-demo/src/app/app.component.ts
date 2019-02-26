@@ -26,24 +26,19 @@ export class AppComponent {
   }
 
   private openAlerts() {
-    [
-      'BottomRight',
-      'BottomLeft',
-      'TopLeft',
-      'TopRight',
-      'BottomCenter',
-      'TopCenter'
-    ].forEach((positon: any, i) => {
-      setTimeout(() => {
-        this.alert.open({
-          heading: 'This is a Heading',
-          msg: 'This is a body content with more details about the alert',
-          type: 'success',
-          position: positon,
-          duration: 0
-        });
-      }, i * 250);
-    });
+    ['BottomRight', 'BottomLeft', 'TopLeft', 'TopRight', 'BottomCenter', 'TopCenter'].forEach(
+      (positon: any, i) => {
+        setTimeout(() => {
+          this.alert.open({
+            heading: 'This is a Heading',
+            msg: 'This is a body content with more details about the alert',
+            type: 'success',
+            position: positon,
+            duration: 0
+          });
+        }, i * 250);
+      }
+    );
   }
 
   openAlert() {

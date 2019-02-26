@@ -3,11 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {
-  NguAlertModule,
-  NGU_ALERT_CONFIG,
-  NguAlertConfig
-} from '../../../alert/src/public_api';
+import { NguAlertModule, NGU_ALERT_CONFIG, NguAlertConfig } from '../../../alert/src/public_api';
 import { CustomTemplateComponent } from './custom-template/custom-template.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 

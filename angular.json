@@ -27,13 +27,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "projects/alert/tsconfig.lib.json",
-              "projects/alert/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["projects/alert/tsconfig.lib.json", "projects/alert/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -57,13 +52,8 @@
             "main": "projects/alert-demo/src/main.ts",
             "polyfills": "projects/alert-demo/src/polyfills.ts",
             "tsConfig": "projects/alert-demo/tsconfig.app.json",
-            "assets": [
-              "projects/alert-demo/src/favicon.ico",
-              "projects/alert-demo/src/assets"
-            ],
-            "styles": [
-              "projects/alert-demo/src/styles.scss"
-            ],
+            "assets": ["projects/alert-demo/src/favicon.ico", "projects/alert-demo/src/assets"],
+            "styles": ["projects/alert-demo/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -117,14 +107,9 @@
             "polyfills": "projects/alert-demo/src/polyfills.ts",
             "tsConfig": "projects/alert-demo/tsconfig.spec.json",
             "karmaConfig": "projects/alert-demo/karma.conf.js",
-            "styles": [
-              "projects/alert-demo/src/styles.scss"
-            ],
+            "styles": ["projects/alert-demo/src/styles.scss"],
             "scripts": [],
-            "assets": [
-              "projects/alert-demo/src/favicon.ico",
-              "projects/alert-demo/src/assets"
-            ]
+            "assets": ["projects/alert-demo/src/favicon.ico", "projects/alert-demo/src/assets"]
           }
         },
         "lint": {
@@ -134,9 +119,7 @@
               "projects/alert-demo/tsconfig.app.json",
               "projects/alert-demo/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -162,9 +145,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "projects/alert-demo-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }

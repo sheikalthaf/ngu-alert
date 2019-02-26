@@ -11,9 +11,7 @@ import {
 import { NguAlert, NguAlertConfig } from './ngu-alert';
 import { NguAlertMsgComponent } from './ngu-alert-msg.component';
 
-export const NGU_ALERT_CONFIG = new InjectionToken<NguAlertConfig>(
-  'nguAlert.config'
-);
+export const NGU_ALERT_CONFIG = new InjectionToken<NguAlertConfig>('nguAlert.config');
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -61,14 +59,8 @@ export class NguAlertComponent {
     this.addComponent(this.data.customTemplate, data, template);
   }
 
-  private addComponent(
-    componentClass: Type<NguAlertMsgComponent>,
-    data: NguAlert,
-    template: any
-  ) {
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-      componentClass
-    );
+  private addComponent(componentClass: Type<NguAlertMsgComponent>, data: NguAlert, template: any) {
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentClass);
     const component = (<ViewContainerRef>(
       this[data.position || this.data.defaultPosition]
     )).createComponent(componentFactory);

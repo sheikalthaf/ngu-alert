@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  HostListener,
-  ComponentRef
-} from '@angular/core';
+import { Component, OnInit, Input, HostListener, ComponentRef } from '@angular/core';
 import { NguAlert, NguAlertContentType } from './ngu-alert';
 import { alertAnimations } from './ngu-alert.animation';
 

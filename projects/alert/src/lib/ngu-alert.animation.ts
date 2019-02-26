@@ -19,10 +19,7 @@ export const alertAnimations: { [x: string]: AnimationTriggerMetadata } = {
     ),
     transition(
       ':leave',
-      animate(
-        '225ms cubic-bezier(0.4,0.0,0.2,1)',
-        style({ transform: 'translateY(110%)' })
-      )
+      animate('225ms cubic-bezier(0.4,0.0,0.2,1)', style({ transform: 'translateY(110%)' }))
     )
   ]),
 
@@ -40,10 +37,7 @@ export const alertAnimations: { [x: string]: AnimationTriggerMetadata } = {
   alertAnimation2: trigger('alertAnimation', [
     transition(':enter', [
       style({ transform: 'translateY(110%) scale(.8)', opacity: 0 }),
-      animate(
-        '225ms cubic-bezier(0.4,0.0,0.2,1)',
-        style({ transform: 'none', opacity: 1 })
-      )
+      animate('225ms cubic-bezier(0.4,0.0,0.2,1)', style({ transform: 'none', opacity: 1 }))
     ]),
     transition(':leave', [
       style({ transform: 'none' }),

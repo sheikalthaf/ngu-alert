@@ -8,9 +8,8 @@ describe('NguAlertComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NguAlertComponent ]
-    })
-    .compileComponents();
+      declarations: [NguAlertComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
